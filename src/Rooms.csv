@@ -1,6 +1,8 @@
-0,Dungeon Entrance,You’ve fallen down a hole and find yourself in a large open space with 4 connecting pathways,true,Chest Room 1,1,BrokenBridge 1,2,Bat Room,3,Empty Room 1,4
-1,Chest Room 1,An empty flat room with no other doors and nothing but an unlocked chest in the center,false,Dungeon Entrance,0,none,-1,none,-1,none,-1
-2,Broken Bridge 1, an open void with a bridge that has crumbled in the center,false,Dungeon Entrance,0,none,-1,none,-1,none,-1
-3,Bat Room,You enter a cavern full of sleeping bats hanging from the ceiling,false,Dungeon Entrance,0,none,-1,none,-1,none,-1
-4,Empty Room 1,This room has nothing in it at all... How boring,false,Dungeon Entrance,1,none,-1,none,-1,none,-1
-5,Dungeon Exit,this room has a hole in the ceiling with a ladder to the surface,
+1,Room 1,You at the entrance of a cave.,NORTH:2,SOUTH:5
+2,Room 2,You are in a narrow passage in the cave.,EAST:3,SOUTH:1
+3,Room 3,You are at a waterfall in the cave.,NORTH:4,WEST:2
+4,Room 4,you jump down the waterfall into a pool of water.,NORTH:6
+5,Room 5,you are in the forest outside the cave.,NORTH:1
+6,Room 6,You enter a room and find a rope that leads to the surface.,SOUTH:4,WEST:5
+
+
