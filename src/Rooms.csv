@@ -1,8 +1,8 @@
-1,Room 1,You at the entrance of a cave.,NORTH:2,SOUTH:5
-2,Room 2,You are in a narrow passage in the cave.,EAST:3,SOUTH:1
-3,Room 3,You are at a waterfall in the cave.,NORTH:4,WEST:2
-4,Room 4,you jump down the waterfall into a pool of water.,NORTH:6
-5,Room 5,you are in the forest outside the cave.,NORTH:1
-6,Room 6,You enter a room and find a rope that leads to the surface.,SOUTH:4,WEST:5
+1,Cave Entrance,You at the entrance of a cave.,NORTH:2,SOUTH:5
+2,Narrow Passage,You are in a narrow passage in the cave.,EAST:3,SOUTH:1
+3,Waterfall,You are at a waterfall in the cave.,NORTH:4,WEST:2
+4,Pool,you jump down the waterfall into a pool of water.,NORTH:6
+5,Forest,you are in the forest outside the cave.,NORTH:1
+6,Rope Room,You enter a room and find a rope that leads to the surface.,SOUTH:4,WEST:5
 
 

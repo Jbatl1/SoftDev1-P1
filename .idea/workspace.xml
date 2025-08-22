@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e24359de-96cf-4613-985b-dcc5086a15ed" name="Changes" comment="">
+    <list default="true" id="e24359de-96cf-4613-985b-dcc5086a15ed" name="Changes" comment="Gameplay done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerInteraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Rooms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rooms.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Jbatl1"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Jbatl1/SoftDev1-P1.git",
+    "accountId": "0585635e-5724-4b31-9126-82d6b7aeed5a"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -75,12 +84,25 @@
       <option name="presentableId" value="Default" />
       <updated>1755524102289</updated>
       <workItem from="1755524103285" duration="18511000" />
-      <workItem from="1755806286821" duration="14349000" />
+      <workItem from="1755806286821" duration="15567000" />
     </task>
+    <task id="LOCAL-00001" summary="Gameplay done">
+      <option name="closed" value="true" />
+      <created>1755820860648</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755820860648</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Gameplay done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gameplay done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

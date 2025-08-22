@@ -77,14 +77,16 @@ public class Main {
 
 
     public static void main(String[] args) {
-        ArrayList<Room> rooms = new ArrayList<>();
 
+        /*
+         * ADD FUNCTIONALITY FOR DIFFERENT LINES BASED ON IF THE ROOM IS BEING REVISITED
+         */
+
+        // Create ArrayList of Rooms from a file
+        ArrayList<Room> rooms;
         String FileName = getFileName();
         rooms = loadGame(FileName);
-        // Create ArrayList of Rooms from Rooms.csv
 
-
-        //System.out.println(rooms);
 
         // Main gameplay loop
         PlayerInteraction p1 = new PlayerInteraction(rooms);
