@@ -36,9 +36,6 @@ public class Main {
         ArrayList<Room> rooms = new ArrayList<>();
         try (Scanner in = new Scanner(new FileInputStream(f))) {
             while (in.hasNext()) {
-                // hashmap for the exits of each room
-                HashMap<String, Integer> exits = new HashMap<>();
-
                 // read the rooms.csv file line by line
                 String line = in.nextLine();
 
