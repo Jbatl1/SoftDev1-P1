@@ -72,11 +72,28 @@ public class Game {
         return null;
     }
 
+    //method to get the file path from user and validate that it exists
+    public String getFilePath() {
+        Scanner scanner = new Scanner(System.in);
+        boolean validFile = false;
+        String f = "";
+        while(!validFile) {
+            System.out.println("Enter the name of the file you want to load: ");
+            f = scanner.nextLine();
+            try (FileInputStream in = new FileInputStream(f)) {
+                validFile = true;
+            }
+            catch (IOException e) {
+                System.out.println("Cant find file");
+            }
+        }
+        return f;
+    }
 
     public static void main(String[] args) {
         // Create ArrayList of Rooms from a file
         Game g1 = new Game();
-        g1.rooms = g1.loadGame("src/Rooms.csv");
+        g1.rooms = g1.loadGame(g1.getFilePath());
 
 
         // Main gameplay loop
