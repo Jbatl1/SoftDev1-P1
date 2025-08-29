@@ -40,9 +40,5 @@ public class Room {
     }
 
 
-    // toString for testing
-    @Override
-    public String toString() {
-        return "\n" + roomNumber + ". " + name + "\nDescription: " + description + "\nVisited: " + visited + "\nExits: " + exits.toString() + "\n";
-    }
+
 }

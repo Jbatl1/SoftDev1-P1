@@ -1,16 +1,35 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Scanner;
 
-public class Main {
+public class Game {
+    private ArrayList<Room> rooms;
+    public Game () {
+        keepPLaying = true;
+    }
+    private boolean keepPLaying;
+
+    // getter for keep playing variable
+    public boolean isKeepPLaying() {
+        return keepPLaying;
+    }
+
+
+    // This method checks if the user wants to quit the game and if not, it marks the current room as visited and moves the player to the next room.
+    public void goToNextRoom(ArrayList<Room> rooms, String direction, Player p1) {
+        if (direction.equals("QUIT")) keepPLaying = false;
+        else {
+            p1.getCurrentRoom().visit();
+            p1.setCurrentRoom(rooms.get(p1.getCurrentRoom().exits.get(direction)-1));
+        }
+    }
 
 
     /*
      * This method takes a String line and splits it into the applicable data for a room object
      */
-    public static Room getRoom(String line) {
+    public Room getRoom(String line) {
         // split the line by the camas
         String[] sl = line.split(",");
 
@@ -32,7 +51,7 @@ public class Main {
     /*
      * This method loads the Rooms.csv file into an ArrayList of Room objects.
      */
-    public static ArrayList<Room> loadGame(String f) {
+    public ArrayList<Room> loadGame(String f) {
         ArrayList<Room> rooms = new ArrayList<>();
         try (Scanner in = new Scanner(new FileInputStream(f))) {
             while (in.hasNext()) {
@@ -54,43 +73,18 @@ public class Main {
     }
 
 
-    // This method gets the name of the file to load from the user
-    public static String getFileName() {
-        Scanner scanner = new Scanner(System.in);
-        boolean validFile = false;
-        String f = "";
-        while(!validFile) {
-            System.out.println("Enter the name of the file you want to load: ");
-            f = scanner.nextLine();
-            try (FileInputStream in = new FileInputStream(f)) {
-                validFile = true;
-            }
-            catch (IOException e) {
-                System.out.println("Cant find file");
-            }
-        }
-        return f;
-    }
-
-
     public static void main(String[] args) {
-
-        /*
-         * ADD FUNCTIONALITY FOR DIFFERENT LINES BASED ON IF THE ROOM IS BEING REVISITED
-         */
-
         // Create ArrayList of Rooms from a file
-        ArrayList<Room> rooms;
-        String FileName = getFileName();
-        rooms = loadGame(FileName);
+        Game g1 = new Game();
+        g1.rooms = g1.loadGame("src/Rooms.csv");
 
 
         // Main gameplay loop
-        PlayerInteraction p1 = new PlayerInteraction(rooms);
-        while (p1.isKeepPLaying()) {
+        Player p1 = new Player(g1.rooms);
+        while (g1.isKeepPLaying()) {
             p1.printCurrentRoom();
             String direction = p1.getInput();
-            p1.goToNextRoom(rooms, direction);
+            g1.goToNextRoom(g1.rooms, direction, p1);
         }
     }
 }

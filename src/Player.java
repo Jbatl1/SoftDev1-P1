@@ -1,22 +1,25 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PlayerInteraction {
-    private boolean keepPLaying;
+public class Player {
     // room object that the player is currently in
     private Room currentRoom;
     private final Scanner scanner;
 
     // constructor
-    public PlayerInteraction(ArrayList<Room> rooms) {
+    public Player(ArrayList<Room> rooms) {
         currentRoom = rooms.get(0);
-        keepPLaying = true;
         scanner = new Scanner(System.in);
     }
 
-    // getter for keep playing variable
-    public boolean isKeepPLaying() {
-        return keepPLaying;
+    // getter for current room
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    // setter for current room
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 
     // This method checks if the input from the user is a valid direction or quit
@@ -26,16 +29,6 @@ public class PlayerInteraction {
             if (userInput.equals(s)) return true;
         }
         return false;
-    }
-
-    // This method checks if the user wants to quit the game and if not, it marks the current room as visited and moves the player to the next room.
-    public void goToNextRoom(ArrayList<Room> rooms, String direction) {
-        if (direction.equals("QUIT")) keepPLaying = false;
-
-        else {
-            currentRoom.visit();
-            currentRoom = rooms.get(currentRoom.exits.get(direction)-1);
-        }
     }
 
     // This method prompts the user to input the direction they would like to travel and loops until they input a valid direction
@@ -55,12 +48,12 @@ public class PlayerInteraction {
      */
     public void printCurrentRoom() {
         System.out.println(currentRoom.description);
+        if (currentRoom.visited) {
+            System.out.println("You Have visited this room before!");
+        }
         System.out.println("EXITS: ");
         for (String s : currentRoom.getExits()) System.out.println(s);
         System.out.println("Type \"QUIT\" to quit");
 
     }
-
-
-
 }
