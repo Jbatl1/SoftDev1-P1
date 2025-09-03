@@ -20,7 +20,9 @@ public class Game {
     public void goToNextRoom(ArrayList<Room> rooms, String direction, Player p1) {
         if (direction.equals("QUIT")) keepPLaying = false;
         else {
+            // mark the current room as visited
             p1.getCurrentRoom().visit();
+            // get the value of the next room from the hashmap based on the direction key that was obtained from the user.
             p1.setCurrentRoom(rooms.get(p1.getCurrentRoom().exits.get(direction)-1));
         }
     }
@@ -98,7 +100,7 @@ public class Game {
         g1.rooms = g1.loadGame(filePath);
 
 
-        // Main gameplay loop
+        // Main gameplay loop - print the current room
         Player p1 = new Player(g1.rooms);
         while (g1.isKeepPLaying()) {
             p1.printCurrentRoom();

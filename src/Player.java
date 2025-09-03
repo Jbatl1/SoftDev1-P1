@@ -32,6 +32,7 @@ public class Player {
     }
 
     // This method prompts the user to input the direction they would like to travel and loops until they input a valid direction
+    //the users input is passed to the checkInput method
     public String getInput() {
         System.out.println("Enter the direction you would like to go (NORTH-EAST-SOUTH-WEST): ");
         String direction = scanner.nextLine().trim().toUpperCase();
@@ -44,7 +45,7 @@ public class Player {
     }
 
     /*
-     * Method to print the description and exits of the current room
+     * Method to print the description and exits of the current room and if the room has been visited before
      */
     public void printCurrentRoom() {
         System.out.println(currentRoom.description);

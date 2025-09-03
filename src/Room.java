@@ -29,12 +29,12 @@ public class Room {
     }
 
 
-    // This method returns an ArrayList of the exits for a room
+    // This method returns an ArrayList of the exits for a room by iterating through each key in the rooms hashmap
     public ArrayList<String> getExits() {
         ArrayList<String> listOfExits = new ArrayList<>();
 
-        for(Map.Entry<String, Integer> exit : exits.entrySet()) {
-            listOfExits.add(exit.getKey());
+        for(String exit : exits.keySet()) {
+            listOfExits.add(exit);
         }
         return listOfExits;
     }
