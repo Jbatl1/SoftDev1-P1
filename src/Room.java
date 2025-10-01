@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Room {
+    private ArrayList<Item> items;
     int roomNumber;
     String name;
     String description;
@@ -39,6 +40,14 @@ public class Room {
         return listOfExits;
     }
 
-
+    public String explore() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (Item x : this.items) {
+            sb.append(x.toString()).append(", ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
 }

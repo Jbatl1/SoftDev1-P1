@@ -3,4 +3,4 @@
 3,Waterfall,You are at a waterfall in the cave.,NORTH:4,WEST:2
 4,Pool,you jump into a pool of water.,NORTH:6
 5,Forest,you are in the forest outside the cave.,NORTH:1
-6,Rope Room,You enter a room and find a rope that leads to the surface.,SOUTH:4,WEST:5
+6,Rope Room,You enter a room and find a rope that leads to the surface.,SOUTH:4

@@ -33,7 +33,7 @@ public class Game {
      * [room number, room name, room desc, exit, exit, exit, exit]
      */
     private Room getRoom(String line) {
-        // split the line by the camas into a String array
+        // split the line by the commas into a String array
         String[] sl = line.split(",");
 
         // create a room object based off known locations of data in rooms.csv

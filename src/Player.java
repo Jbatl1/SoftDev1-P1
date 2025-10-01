@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Player {
     // room object that the player is currently in
     private Room currentRoom;
+    private ArrayList<Item> items;
     private final Scanner scanner;
 
     // constructor
@@ -55,6 +56,5 @@ public class Player {
         System.out.println("EXITS: ");
         for (String s : currentRoom.getExits()) System.out.println(s);
         System.out.println("Type \"QUIT\" to quit");
-
     }
 }
