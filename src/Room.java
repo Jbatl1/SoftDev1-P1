@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Room {
+    private Puzzle puzzle;
     private ArrayList<Item> items = new ArrayList<>();
     int roomNumber;
     private String name;
@@ -31,6 +32,12 @@ public class Room {
     }
     public String getName() {
         return this.name;
+    }
+    public Puzzle getPuzzle() {
+        return this.puzzle;
+    }
+    public void setPuzzle(Puzzle puzzle) {
+        this.puzzle = (puzzle);
     }
 
     // Method to add an exit

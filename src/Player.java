@@ -34,6 +34,11 @@ public class Player {
         System.out.println("Enter the direction you would like to go (NORTH-EAST-SOUTH-WEST): ");
         return scanner.nextLine().trim().toUpperCase();
     }
+    //displays the puzzle and reads for input
+    public String getPuzzleInput() {
+        this.currentRoom.getPuzzle().displayPuzzle();
+        return scanner.nextLine().trim().toUpperCase();
+    }
 
     /*
      * Method to print the description and exits of the current room and if the room has been visited before
@@ -67,5 +72,21 @@ public class Player {
             else System.out.print(i.getName() + ", ");
         }
         System.out.println("]");
+    }
+
+    public int solvePuzzle(Puzzle puzzle, String input) {
+        int x = puzzle.solve(input);
+        switch (x) {
+            case 1:
+                System.out.println("you solved the puzzle correctly!");
+                return 1;
+            case 0:
+                System.out.println("the answer you provided is wrong, you still have " + puzzle.getNumAttempts() + " number-of-attempt");
+                break;
+            case -1:
+                System.out.println("failed to solve");
+                break;
+        }
+        return -1;
     }
 }

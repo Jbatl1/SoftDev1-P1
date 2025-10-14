@@ -23,8 +23,32 @@ public class Game {
             // mark the current room as visited
             // I know this is being called before moving, but it's setting the room that the player is leaving as visited, not the one they are moving into
             p1.getCurrentRoom().visit();
+            //reset the puzzle in room if it exists
+            if (p1.getCurrentRoom().getPuzzle() != null) p1.getCurrentRoom().getPuzzle().resetPuzzle();
             // get the value of the next room from the hashmap based on the direction key that was obtained from the user.
             p1.setCurrentRoom(rooms.get(p1.getCurrentRoom().getExits().get(direction)-1));
+        }
+    }
+
+    public void getPuzzles(String f) {
+        try {
+            Scanner in = new Scanner(new FileInputStream(f));
+            while (in.hasNext()) {
+                // get the next line in the file
+                String line = in.nextLine();
+
+                // split the line by the commas into a String array
+                String[] sl = line.split(",");
+
+                // create a puzzle object based off known locations of data in puzzles.csv
+                Puzzle puzzle = new Puzzle(sl[0], sl[1], sl[2], Integer.parseInt(sl[3]));
+
+                // add that puzzle to its correct room and sets hasPuzzle boolean to true
+                rooms.get(Integer.parseInt(sl[4])-1).setPuzzle(puzzle);
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Can't find file");
         }
     }
 
@@ -131,7 +155,7 @@ public class Game {
             case "WEST", "W":
                 g1.goToNextRoom(g1.rooms, "WEST", p1);
                 break;
-                // regex looking for the word PICKUP followed by a space and then any number of characters or spaces.
+            // regex looking for the word PICKUP followed by a space and then any number of characters or spaces.
             case String s when input.matches("^PICKUP\\s.*$"):
                 for (Item i : p1.getCurrentRoom().getItems()) {
                     if (i.getName().toUpperCase().equals(s.substring(7).trim())) {
@@ -187,12 +211,30 @@ public class Game {
         System.out.println("Items:");
         g1.getItems(g1.getFilePath());
 
+        // load puzzles into rooms from a file
+        System.out.println("Puzzles:");
+        g1.getPuzzles(g1.getFilePath());
+
         // Main gameplay loop - print the current room
         Player p1 = new Player(g1.rooms);
         while (g1.isKeepPLaying()) {
-            p1.printCurrentRoom();
-            String input = p1.getInput();
-            g1.processInput(input, g1, p1);
+            Puzzle currPuzzle = p1.getCurrentRoom().getPuzzle();
+            boolean puzzle = currPuzzle != null && currPuzzle.getNumAttempts() > 0;
+            // if the room has a puzzle, go into "puzzle mode" else use regular inputs
+            if (puzzle) {
+                while (currPuzzle.getNumAttempts() > 0) {
+                    int x = p1.solvePuzzle(currPuzzle, p1.getPuzzleInput());
+                    if (x == 1) {
+                        p1.getCurrentRoom().setPuzzle(null);
+                        break;
+                    }
+                }
+            }
+            else {
+                p1.printCurrentRoom();
+                String input = p1.getInput();
+                g1.processInput(input, g1, p1);
+            }
         }
     }
 }
