@@ -74,6 +74,10 @@ public class Player {
         System.out.println("]");
     }
 
+    // takes a puzzle and a String input, displays corresponding text and int depending on if the input string in the solution to the puzzle.
+    // 1 = solved
+    // 0 = wrong answer
+    //-1 = out of attempts
     public int solvePuzzle(Puzzle puzzle, String input) {
         int x = puzzle.solve(input);
         switch (x) {

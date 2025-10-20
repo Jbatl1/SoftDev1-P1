@@ -24,6 +24,7 @@ public class Puzzle {
     public int getNumAttempts() {
         return this.numAttempts;
     }
+
     public int solve(String answer) {
         if (answer.equalsIgnoreCase(solution)) return 1;
         else if (numAttempts > 1){
